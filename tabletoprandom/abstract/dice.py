@@ -1,12 +1,12 @@
 import abc
 import random
-from typing import Set, TypeVar
+from typing import Set, Sized, TypeVar
 from .primitives import Rollable
 
 T = TypeVar('T')
 
 
-class Die(Rollable[T], abc.ABC):
+class Die(Rollable[T], Sized, abc.ABC):
     """A base class for dice to inherit from, defining some expectations
 
     Adds the basic die class with `faces`, `mode` and `probability` functions.
@@ -41,6 +41,9 @@ class Die(Rollable[T], abc.ABC):
         to test if a face is on the die `face in Die.faces` should be used
         instead"""
         pass
+    
+    def __len__(self) -> int:
+        return self.num_faces
 
 
 T = TypeVar('T')
