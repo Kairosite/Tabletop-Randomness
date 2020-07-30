@@ -92,13 +92,13 @@ class MonotonicDie(Die[T]):
     @abc.abstractmethod
     def best_roll(self) -> T:
         """Returns the worst roll of the die"""
-        return max(self.faces)
+        pass
 
     @property
     @abc.abstractmethod
     def worst_roll(self) -> T:
         """Returns the worst roll of the die"""
-        return min(self.faces)
+        pass
 
 
 N = TypeVar('N', float, int)
