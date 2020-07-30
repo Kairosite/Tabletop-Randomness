@@ -1,6 +1,6 @@
 import unittest
 import random
-from tabletoprandom.dice.test import TraditionalDie
+from tabletoprandom.dice.traditional import TraditionalDie
 
 
 class TraditionalDie_TestCase(unittest.TestCase):
