@@ -10,6 +10,18 @@ class TraditionalDie_TestCase(unittest.TestCase):
         self.d6 = TraditionalDie(6)
         self.d20 = TraditionalDie(20)
 
+    def test_num_faces(self):
+        self.assertEqual(self.d3.num_faces, 3)
+        self.assertEqual(self.d6.num_faces, 6)
+        self.assertEqual(self.d20.num_faces, 20)
+        default = TraditionalDie()
+        self.assertEqual(default.num_faces, 6)
+
+    def test_sized(self):
+        self.assertEqual(len(self.d3), 3)
+        self.assertEqual(len(self.d3), 6)
+        self.assertEqual(len(self.d3), 20)
+
     def test_type(self):
         self.assertIsInstance(self.d3, TraditionalDie)
         self.assertIsInstance(self.d6, TraditionalDie)
