@@ -41,7 +41,7 @@ class Die(Rollable[T], Sized, abc.ABC):
         to test if a face is on the die `face in Die.faces` should be used
         instead"""
         pass
-    
+
     def __len__(self) -> int:
         return self.num_faces
 
