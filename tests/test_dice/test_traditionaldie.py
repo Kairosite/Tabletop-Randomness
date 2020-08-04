@@ -19,8 +19,8 @@ class TraditionalDie_TestCase(unittest.TestCase):
 
     def test_sized(self):
         self.assertEqual(len(self.d3), 3)
-        self.assertEqual(len(self.d3), 6)
-        self.assertEqual(len(self.d3), 20)
+        self.assertEqual(len(self.d6), 6)
+        self.assertEqual(len(self.d20), 20)
 
     def test_type(self):
         self.assertIsInstance(self.d3, TraditionalDie)
