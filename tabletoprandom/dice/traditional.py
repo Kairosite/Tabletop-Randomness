@@ -1,8 +1,10 @@
-from typing import Set
+from typing import Set, Final
 from ..abstract.dice import NumericDie, FairDie
 
 
 class TraditionalDie(NumericDie[int], FairDie[int]):
+
+    num_faces: Final[int]
 
     def __init__(self, n=6) -> None:
         if n < 1:

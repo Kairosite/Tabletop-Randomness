@@ -21,5 +21,5 @@ setuptools.setup(
         "Programming Language :: Python :: 3 :: Only",
         "Topic :: Games/Entertainment :: Board Games",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.8',
 )
