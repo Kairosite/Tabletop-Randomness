@@ -142,6 +142,11 @@ class TraditionalDie_TestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             TraditionalDie(-1000)
 
+    def test_str(self):
+        self.assertEqual(str(self.d3), "d3")
+        self.assertEqual(str(self.d6), "d6")
+        self.assertEqual(str(self.d20), "d20")
+
 
 if __name__ == '__main__':
     unittest.main()

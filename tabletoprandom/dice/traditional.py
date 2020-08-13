@@ -14,3 +14,6 @@ class TraditionalDie(NumericDie[int], FairDie[int]):
     @property
     def faces(self) -> Set[int]:
         return set(range(1, self.num_faces+1))
+
+    def __str__(self) -> str:
+        return f"d{self.num_faces}"
