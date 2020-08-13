@@ -94,7 +94,7 @@ class MonotonicDie(Die[T]):
     @property
     @abc.abstractmethod
     def best_roll(self) -> T:
-        """Returns the worst roll of the die"""
+        """Returns the best roll of the die"""
         pass
 
     @property
