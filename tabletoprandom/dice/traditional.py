@@ -1,5 +1,8 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 from typing import Set, Final
-from ..abstract.dice import NumericDie, FairDie
+from tabletoprandom.abstract.dice import NumericDie, FairDie
 
 
 class TraditionalDie(NumericDie[int], FairDie[int]):

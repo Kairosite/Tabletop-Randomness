@@ -1,4 +1,7 @@
-from traditional import TraditionalDie
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+from tabletoprandom.dice.traditional import TraditionalDie
 
 
 class MagicalDie(TraditionalDie):
