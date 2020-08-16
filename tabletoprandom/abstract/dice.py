@@ -51,7 +51,7 @@ T = TypeVar('T')
 
 class FairDie(Die[T]):
     """An inheritable class that implements the behaviour of a fair die"""
-    isFair = True
+    is_fair = True
 
     def __roll__(self) -> T:
         """Returns a face from a fair roll of the die"""
