@@ -114,26 +114,17 @@ class TraditionalDie_TestCase(unittest.TestCase):
                 self.assertListEqual(
                     *self.seq_seed_capture_repeat_capture(i, self.d20, 3*i)
                 )
-        self.assertListEqual(self.d3.rolls(0), [])
-        self.assertListEqual(self.d6.rolls(0), [])
-        self.assertListEqual(self.d20.rolls(0), [])
-        with self.assertRaises(ValueError):
-            self.d3.rolls(-1)
-        with self.assertRaises(ValueError):
-            self.d6.rolls(-1)
-        with self.assertRaises(ValueError):
-            self.d20.rolls(-1)
-        with self.assertRaises(ValueError):
-            self.d3.rolls(-1000)
-        with self.assertRaises(ValueError):
-            self.d6.rolls(-1000)
-        with self.assertRaises(ValueError):
-            self.d20.rolls(-1000)
+        with self.assertRaises(StopIteration):
+            next(self.d3.rolls(0))
+        with self.assertRaises(StopIteration):
+            next(self.d3.rolls(-1))
+        with self.assertRaises(StopIteration):
+            next(self.d3.rolls(-1000))
 
     def seq_seed_capture_repeat_capture(self, seed, die, n):
         repeat_captures = []
         random.seed(seed)
-        die_captures = die.rolls(n)
+        die_captures = list(die.rolls(n))
         random.seed(seed)
         for i in range(n):
             repeat_captures.append(random.choice(tuple(die.faces)))

@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import abc
-from typing import List, Iterable, TypeVar
+from typing import Iterable, TypeVar
 
 T = TypeVar('T')
 
@@ -31,8 +31,8 @@ class Rollable(Iterable[T], abc.ABC):
         self.last_roll = self.__roll__()
         return self.last_roll
 
-    def rolls(self, n: int) -> List[T]:
-        """Returns a list of values equivalent to calling `roll` `n` times
+    def rolls(self, n: int) -> Iterable[T]:
+        """A generator equivalent to calling `roll` `n` times
 
         Parameters
         ----------
@@ -41,12 +41,12 @@ class Rollable(Iterable[T], abc.ABC):
 
         Returns
         -------
-        List[T]
-            A list of results from roll
+        Iterable[T]
+            A generator of results from roll
         """
-        if n < 0:
-            raise ValueError("Cannot request a negative number of rolls")
-        return list(next(self) for _ in range(n))
+        while n > 0:
+            n -= 1
+            yield(next(self))
 
     def __iter__(self) -> T:
         return self
