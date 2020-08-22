@@ -183,6 +183,8 @@ class MagicalDie_TestCase(unittest.TestCase):
         self.d3.empower()
         self.d3.dispell()
         self.assertEqual(self.d3.charge, 0)
+        self.d3.dispell()
+        self.assertEqual(self.d3.charge, 0)
         self.d6.empower(3)
         test_value_1 = 5
         self.d20.empower(test_value_1)
