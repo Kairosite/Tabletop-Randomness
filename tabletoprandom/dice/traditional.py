@@ -3,6 +3,7 @@ from __future__ import division
 from __future__ import print_function
 from typing import Set, Final
 from tabletoprandom.abstract.dice import NumericDie, FairDie
+import random
 
 
 class TraditionalDie(NumericDie[int], FairDie[int]):
@@ -27,6 +28,12 @@ class TraditionalDie(NumericDie[int], FairDie[int]):
     @property
     def faces(self) -> Set[int]:
         return set(range(1, self.num_faces+1))
+
+    @staticmethod
+    def quick_roll(n=6) -> int:
+        if n < 1:
+            raise ValueError("A die must have at least one side")
+        return random.randint(1, n)
 
     def __str__(self) -> str:
         return f"d{self.num_faces}"
