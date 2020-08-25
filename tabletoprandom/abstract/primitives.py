@@ -46,7 +46,7 @@ class Rollable(Iterable[T], abc.ABC):
         """
         while n > 0:
             n -= 1
-            yield(next(self))
+            yield self.roll()
 
     def __iter__(self) -> T:
         return self
