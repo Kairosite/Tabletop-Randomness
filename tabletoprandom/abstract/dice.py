@@ -3,7 +3,7 @@ from __future__ import division
 from __future__ import print_function
 import abc
 import random
-from typing import Set, Sized, TypeVar
+from typing import Set, Sized, TypeVar, List
 from tabletoprandom.abstract.primitives import Rollable
 
 T = TypeVar('T')
@@ -104,6 +104,12 @@ class MonotonicDie(Die[T]):
     @abc.abstractmethod
     def worst_roll(self) -> T:
         """Returns the worst roll of the die"""
+        pass
+
+    @property
+    @abc.abstractmethod
+    def face_order(self) -> List[T]:
+        """Returns an ordered list of the die's faces"""
         pass
 
 

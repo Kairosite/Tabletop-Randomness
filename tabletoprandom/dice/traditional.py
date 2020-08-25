@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-from typing import Set, Final
+from typing import Set, Final, List
 from tabletoprandom.abstract.dice import NumericDie, FairDie
 import random
 
@@ -28,6 +28,11 @@ class TraditionalDie(NumericDie[int], FairDie[int]):
     @property
     def faces(self) -> Set[int]:
         return set(range(1, self.num_faces+1))
+
+    @property
+    def face_order(self) -> List[int]:
+        """Returns an ordered list of the die's faces"""
+        return list(range(1, self.num_faces+1))
 
     @staticmethod
     def quick_roll(n=6) -> int:
