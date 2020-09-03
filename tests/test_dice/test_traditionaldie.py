@@ -141,6 +141,11 @@ class TraditionalDie_TestCase(unittest.TestCase):
         self.assertEqual(str(self.d6), "d6")
         self.assertEqual(str(self.d20), "d20")
 
+    def test_face_order(self):
+        self.assertEqual(self.d3.face_order, list(range(1, 4)))
+        self.assertEqual(self.d6.face_order, list(range(1, 7)))
+        self.assertEqual(self.d20.face_order, list(range(1, 21)))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -216,6 +216,11 @@ class MagicalDie_TestCase(unittest.TestCase):
                         *self.seed_capture_repeat_capture(i, self.d20)
                     )
 
+    def test_face_order(self):
+        self.assertEqual(self.d3.face_order, list(range(1, 4)))
+        self.assertEqual(self.d6.face_order, list(range(1, 7)))
+        self.assertEqual(self.d20.face_order, list(range(1, 21)))
+
 
 if __name__ == '__main__':
     unittest.main()
