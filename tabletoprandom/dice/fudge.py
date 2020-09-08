@@ -21,6 +21,10 @@ class FudgeDie(FairDie[FudgeValue], NumericDie[FudgeValue]):
         return set(FudgeValue)
 
     @property
+    def num_faces(self) -> int:
+        return len(FudgeValue)
+
+    @property
     def face_order(self) -> List[FudgeValue]:
         """Returns an ordered list of the die's faces"""
         return sorted(list(FudgeValue))
