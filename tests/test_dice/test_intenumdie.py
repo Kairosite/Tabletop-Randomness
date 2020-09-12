@@ -3,13 +3,13 @@ from __future__ import division
 from __future__ import print_function
 import unittest
 import random
-from tabletoprandom.dice.fudge import FudgeDie, FudgeValue
+from tabletoprandom.dice.enumdie import IntEnumDie, FudgeValue
 
 
-class FudgeDie_TestCase(unittest.TestCase):
+class IntEnumDie_TestCase(unittest.TestCase):
 
     def setUp(self):
-        self.dF = FudgeDie()
+        self.dF = IntEnumDie(FudgeValue)
 
     def test_num_faces(self):
         self.assertEqual(self.dF.num_faces, 3)
@@ -18,7 +18,7 @@ class FudgeDie_TestCase(unittest.TestCase):
         self.assertEqual(len(self.dF), 3)
 
     def test_type(self):
-        self.assertIsInstance(self.dF, FudgeDie)
+        self.assertIsInstance(self.dF, IntEnumDie)
 
     def test_mean(self):
         self.assertEqual(self.dF.mean, FudgeValue.BLANK)

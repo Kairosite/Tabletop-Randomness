@@ -20,7 +20,7 @@ class TraditionalDie(NumericDie[int], FairDie[int]):
 
     num_faces: Final[int]
 
-    def __init__(self, n=6) -> None:
+    def __init__(self, n: int = 6) -> None:
         if n < 1:
             raise ValueError("A die must have at least one side")
         self.num_faces = n
@@ -35,7 +35,7 @@ class TraditionalDie(NumericDie[int], FairDie[int]):
         return list(range(1, self.num_faces+1))
 
     @staticmethod
-    def quick_roll(n=6) -> int:
+    def quick_roll(n: int = 6) -> int:
         if n < 1:
             raise ValueError("A die must have at least one side")
         return random.randint(1, n)

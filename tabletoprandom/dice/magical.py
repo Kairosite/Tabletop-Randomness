@@ -8,7 +8,7 @@ class MagicalDie(TraditionalDie):
 
     charge: int
 
-    def __init__(self, n=6, charge=0) -> None:
+    def __init__(self, n: int = 6, charge: int = 0) -> None:
         if charge < 0:
             raise ValueError("A magical die cannot have negative charge")
         self.charge = charge
@@ -22,7 +22,7 @@ class MagicalDie(TraditionalDie):
 
         return super().__roll__()
 
-    def empower(self, charge=1) -> int:
+    def empower(self, charge: int = 1) -> int:
         if charge < 0:
             raise ValueError("A magical die cannot have negative charge")
         self.charge += charge
