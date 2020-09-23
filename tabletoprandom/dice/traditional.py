@@ -12,6 +12,7 @@ class TraditionalDie(NumericDie[int], FairDie[int]):
     Attributes:
         num_faces: the number of faces on the die
         faces: set of all the faces on the die
+        face_order: a list of the die's faces in ascending order
         mode: set of all the most common faces to be rolled
         mean: geometric average roll of the die
         is_fair: boolean describing whether or not a die is fair
