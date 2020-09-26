@@ -69,14 +69,14 @@ class Drawable(Iterable[T], abc.ABC):
 
     @abc.abstractmethod
     def __draw__(self) -> T:
-        """Override with the rolling mechanism of your rollable"""
+        """Override with the drawing mechanism of your drawable"""
         pass
 
     def draw(self) -> T:
         """Returns a value corresponding to the next draw of the object
 
         This function will return a value of the type associated with the
-        rollable generic and update the `last_draw` attrribute.
+        drawable generic and update the `last_draw` attrribute.
         """
         self.last_draw = self.__draw__()
         return self.last_draw
