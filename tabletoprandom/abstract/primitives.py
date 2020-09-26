@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 import abc
-from typing import Iterable, Set, Sized, TypeVar
+from typing import Iterable, Counter, Sized, TypeVar
 
 T = TypeVar('T')
 
@@ -138,26 +138,26 @@ class FiniteDrawable(Drawable[T], Sized):
 
     @property
     @abc.abstractmethod
-    def drawn(self) -> Set[T]:
+    def drawn(self) -> Counter[T]:
         """A property giving a set of elements from the drawable currently
         in the drawn state"""
         pass
 
     @property
     @abc.abstractmethod
-    def pool(self) -> Set[T]:
+    def pool(self) -> Counter[T]:
         """A property giving a set of elements from the drawable currently
         in the undrawn, or drawable state"""
         pass
 
     @abc.abstractmethod
-    def replace(self, T) -> Set[T]:
+    def replace(self, T) -> Counter[T]:
         """A function to replace a drawn object and return the resulting
         undrawn pool"""
         pass
 
     @abc.abstractmethod
-    def replace_all(self) -> Set[T]:
+    def replace_all(self) -> Counter[T]:
         """A function to replace all drawn objects and return the resulting
         undrawn pool"""
         pass
@@ -168,4 +168,4 @@ class FiniteDrawable(Drawable[T], Sized):
         return self.last_draw
 
     def __len__(self) -> int:
-        return len(self.pool)
+        return sum(self.pool.values())
