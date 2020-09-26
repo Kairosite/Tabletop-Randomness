@@ -96,10 +96,7 @@ class Drawable(Iterable[T], abc.ABC):
         """
         while n > 0:
             n -= 1
-            try:
-                yield self.draw()
-            except StopIteration:
-                return
+            yield self.draw()
 
     def __iter__(self) -> T:
         return self
@@ -115,8 +112,29 @@ class FiniteDrawable(Drawable[T], Sized):
 
     This class defines the core requirements of a finite drawable object, but
     cannot be instansiated, it is an iterable, and defines a number of basic
-    functions.
+    functions. The `__draw__` function of a finite drawable is expected to
+    raise a `StopIteration` when exhuasted.
     """
+
+    def draws(self, n: int) -> Iterable[T]:
+        """A generator equivalent to calling `draw` `n` times
+
+        Parameters
+        ----------
+        n : int
+            The number of draws requested
+
+        Returns
+        -------
+        Iterable[T]
+            A generator of results from draw
+        """
+        while n > 0:
+            n -= 1
+            try:
+                yield self.draw()
+            except StopIteration:
+                return
 
     @property
     @abc.abstractmethod
