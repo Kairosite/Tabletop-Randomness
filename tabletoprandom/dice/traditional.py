@@ -28,6 +28,7 @@ class TraditionalDie(NumericDie[int], FairDie[int]):
 
     @property
     def faces(self) -> Set[int]:
+        """Returns an unordered set of the die's faces"""
         return set(range(1, self.num_faces+1))
 
     @property
@@ -37,6 +38,8 @@ class TraditionalDie(NumericDie[int], FairDie[int]):
 
     @staticmethod
     def quick_roll(n: int = 6) -> int:
+        """A static function returning a random die roll for a traditional die
+        of size n"""
         if n < 1:
             raise ValueError("A die must have at least one side")
         return random.randint(1, n)
